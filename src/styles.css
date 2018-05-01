@@ -12,3 +12,9 @@ body {
   padding-top: 4rem;
   text-align: center;
 }
+
+.dropdown-item:active {
+  background-color: #607d8b;
+  color: #fff;
+  text-decoration: none;
+}
