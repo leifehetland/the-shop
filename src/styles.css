@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~bootstrap/dist/css/bootstrap.css";
-@import "https://fonts.googleapis.com/icon?family=Material+Icons";
 @import "https://fonts.googleapis.com/css?family=PT+Mono";
 
 body {
@@ -10,7 +9,6 @@ body {
 
 .container {
   padding-top: 4rem;
-  text-align: center;
 }
 
 .dropdown-item.active, .dropdown-item:active {

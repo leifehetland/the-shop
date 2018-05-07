@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { MatComponentsModule } from './mat-components.module'
-import { MatIconModule } from '@angular/material/icon';
 
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
@@ -51,8 +49,6 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    MatComponentsModule,
-    MatIconModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
