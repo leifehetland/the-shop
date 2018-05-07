@@ -1,0 +1,56 @@
+
+<form>
+  <div class="form-group">
+    <mat-form-field>
+      <input matInput placeholder="Title">
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field>
+      <span matPrefix>$&nbsp;</span>
+      <input matInput type="number" placeholder="Price">
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field>
+      <mat-select placeholder="Category">
+        <mat-option *ngFor="let category of categories" [value]="category.value">
+          {{ category.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field>
+      <input matInput placeholder="Image URL">
+    </mat-form-field>
+  </div>
+
+  <button color="primary" label="primary" mat-raised-button>
+    Save
+  </button>
+</form>
+
+
+
+
+
+<!-- <form>
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Title">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Price">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Category">
+    </mat-form-field>
+
+  </div>
+</form> -->

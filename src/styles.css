@@ -13,8 +13,8 @@ body {
   text-align: center;
 }
 
-.dropdown-item:active {
-  background-color: #607d8b;
-  color: #fff;
+.dropdown-item.active, .dropdown-item:active {
+  background-color: #607d8b !important;
+  color: #fff !important;
   text-decoration: none;
 }
