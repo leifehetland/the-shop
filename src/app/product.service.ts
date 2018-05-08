@@ -9,4 +9,9 @@ export class ProductService {
   create(product) {
     return this.db.list('/products').push(product);
   }
+
+  getAll() {
+    console.log(this.db.list('/products'));
+    return this.db.list('/products').snapshotChanges();
+  }
 }
