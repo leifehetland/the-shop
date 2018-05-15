@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
+import {DataTableModule} from 'angular5-data-table';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
@@ -51,10 +53,12 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     ProductFormComponent
   ],
   imports: [
+    AngularFontAwesomeModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     CustomFormsModule,
+    DataTableModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
