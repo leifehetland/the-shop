@@ -7,3 +7,7 @@
   margin-bottom: 1.5rem;
   width: 20rem;
 }
+
+.card-footer button {
+  cursor: pointer;
+}
