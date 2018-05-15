@@ -13,6 +13,7 @@ import 'rxjs/add/operator/switchMap';
 export class ProductCardComponent {
   @Input('product') product: Product;
   @Input('show-actions') showActions = true;
+  @Input('shopping-cart') shoppingCart;
 
   constructor(private cartService: ShoppingCartService) {}
 
@@ -20,4 +21,10 @@ export class ProductCardComponent {
     this.cartService.addToCart(this.product);
   }
 
+  getQuantity() {
+    if (!this.shoppingCart) return 0;
+    
+    let item = this.shoppingCart.items[this.product.key];
+    return item ? item.quantity : 0;
+  }
 }
