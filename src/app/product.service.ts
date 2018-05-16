@@ -1,7 +1,6 @@
-import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
-import 'rxjs/add/operator/map';
-import { getObservableFromList } from "./extensions/firebase-extensions";
+import { Injectable } from '@angular/core';
+import { getObservableFromList } from './extensions/firebase-extensions';
 
 @Injectable()
 export class ProductService {
@@ -9,7 +8,7 @@ export class ProductService {
   constructor(private db: AngularFireDatabase) { }
 
   getAll() {
-    let list = this.db.list('/products/')
+    let list = this.db.list('/products');
     return getObservableFromList(list);
   }
 

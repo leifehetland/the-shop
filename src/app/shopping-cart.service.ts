@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { ShoppingCart } from './models/shopping-cart';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireObject } from 'angularfire2/database/interfaces';
 import { Product } from './models/product';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/map';
-import { Observable} from 'rxjs/Observable';
-import { ShoppingCart } from './models/shopping-cart';
-
+import { getObservableFromList } from "./extensions/firebase-extensions";
 
 @Injectable()
 export class ShoppingCartService {

@@ -1,4 +1,7 @@
 import { ShoppingCart } from './../models/shopping-cart';
+import { Subscription } from 'rxjs/Subscription';
+import { AngularFireObject } from 'angularfire2/database/interfaces';
+import { Observable } from 'rxjs/Observable';
 import { ShoppingCartService } from './../shopping-cart.service';
 import { Product } from './../models/product';
 import { Component, OnInit, Input } from '@angular/core';
@@ -10,13 +13,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProductCardComponent {
   @Input('product') product: Product;
-  @Input('show-actions') showActions = true;
+  @Input('showActions') showActions = true;
   @Input('shopping-cart') shoppingCart: ShoppingCart;
 
-  constructor(private cartService: ShoppingCartService) {}
+  constructor(private cartService: ShoppingCartService) {
+  }
 
   addToCart() {
     this.cartService.addToCart(this.product);
   }
-
 }

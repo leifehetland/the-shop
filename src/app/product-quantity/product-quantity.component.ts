@@ -11,7 +11,7 @@ import { Component, Input } from '@angular/core';
 export class ProductQuantityComponent {
 
   @Input('product') product: Product;
-  @Input('shopping-cart') shoppingCart;
+  @Input('shopping-cart') shoppingCart: ShoppingCart;
 
   constructor(private cartService: ShoppingCartService) {
   }

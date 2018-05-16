@@ -1,5 +1,5 @@
 import { Product } from './product';
-import { ShoppingCartItem } from './shopping-cart-item';
+import { ShoppingCartItem } from "./shopping-cart-item";
 
 export class ShoppingCart {
   public items: ShoppingCartItem[] = [];
@@ -13,11 +13,6 @@ export class ShoppingCart {
     }
   }
 
-  getQuantity(product: Product) {
-    let item = this.itemsMap[product.key];
-    return item ? item.quantity : 0;
-  }
-
   get totalItemsCount() {
     return this.items.reduce((total, item) => total += item.quantity, 0);
   }
@@ -26,4 +21,8 @@ export class ShoppingCart {
     return this.items.reduce((total, item) => total += item.totalPrice, 0);
   }
 
+  getQuantity(product: Product) {
+    let item = this.itemsMap[product.key];
+    return item ? item.quantity : 0;
+  }
 }
