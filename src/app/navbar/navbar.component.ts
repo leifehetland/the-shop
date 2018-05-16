@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
 import { AuthService } from './../auth.service';
 import { ShoppingCartService } from './../shopping-cart.service';
+import { ShoppingCart } from "./../models/shopping-cart";
 import { AppUser }  from './../models/app-user';
+import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: 'navbar',
@@ -11,20 +13,13 @@ import { AppUser }  from './../models/app-user';
 })
 export class NavbarComponent implements OnInit {
   appUser: AppUser;
-  shoppingCartItemCount: number;
+  cart$: Observable<ShoppingCart>;
 
   constructor(private auth: AuthService, private shoppingCartService: ShoppingCartService) {}
 
   async ngOnInit() {
     this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
-
-    let cart$ = await this.shoppingCartService.getCart();
-    cart$.snapshotChanges().subscribe(cart => {
-      this.shoppingCartItemCount = 0 ;
-      for (let productId in cart.payload.val().items) {
-        this.shoppingCartItemCount += cart.payload.val().items[productId].quantity;
-      }
-    })
+    this.cart$ = await this.shoppingCartService.getCart();
   }
 
   logout() {
