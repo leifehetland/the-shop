@@ -58,7 +58,6 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
     ProductFilterComponent,
     ProductQuantityComponent,
     ProductCardComponent
-
   ],
   imports: [
     AngularFontAwesomeModule,
