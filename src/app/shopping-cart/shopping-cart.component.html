@@ -1,28 +1,47 @@
 <h1>Shopping Cart</h1>
-<ng-container *ngIf="cart$ | async as cart">
+<div class="row col-10" *ngIf="cart$ | async as cart">
   <p>
     You have {{ cart.totalItemsCount }} items in your shopping cart.
   </p>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of cart.items">
-        <td>
-          {{ item.product.title }}
-        </td>
-        <td>
-          {{ item.quantity }}
-        </td>
-        <td>
-          {{ item.totalPrice }}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</ng-container>
+  <ng-container *ngIf="cart.items.length">
+    <table class="table">
+      <thead>
+        <tr>
+          <!-- <th></th> -->
+          <th>Product</th>
+          <th class="text-center">Quantity</th>
+          <th class="text-right">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cart.items">
+          <!-- <td class="align-middle">
+            <div class="img-thumbnail align-middle">
+              <img [src]="item.imageUrl" [alt]="item.title">
+            </div>
+          </td> -->
+          <td class="align-middle">
+            {{ item.title }}
+          </td>
+          <td class="text-center align-middle">
+            <product-quantity [product]="item" [shopping-cart]="cart"></product-quantity>
+          </td>
+          <td class="text-right">
+            {{ item.totalPrice | currency:'USD':2 }}
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th class="text-right">{{ cart.totalPrice | currency:'USD':2 }}</th>
+        </tr>
+      </tfoot>
+    </table>
+    <button *ngIf="cart.items.length" class="btn btn-primary mr-1" routerLink="/check-out">Check Out</button>
+    <button (click)="clearShoppingCart()" class="btn btn-danger ml-1">Clear Shopping Cart</button>
+
+  </ng-container>
+</div>
