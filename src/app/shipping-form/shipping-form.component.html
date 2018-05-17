@@ -1,0 +1,49 @@
+<form #f="ngForm">
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="firstName">First Name</label>
+      <input #firstName="ngModel" name="firstName" [(ngModel)]="shipping.firstName" type="text" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="firstName.touch && firstName.invalid">
+        <div *ngIf="firstName.errors.required">First Name is required.</div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="lastName">Last Name</label>
+      <input #lastName="ngModel" name="lastName" [(ngModel)]="shipping.lastName" type="text" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="lastName.touch && lastName.invalid">
+        <div *ngIf="lastName.errors.required">Last Name is required.</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="address">Address</label>
+      <input #address="ngModel" name="address" [(ngModel)]="shipping.address" type="text" class="form-control" placeholder="Line 1" required>
+      <div class="alert alert-danger" *ngIf="address.touch && address.invalid">
+        <div *ngIf="address.errors.required">Address is required.</div>
+      </div>
+    </div>
+    <div class="col-md-2 mb-3">
+      <label for="city">City</label>
+      <input #city="ngModel" name="city" [(ngModel)]="shipping.city" type="text" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="city.touch && city.invalid">
+        <div *ngIf="city.errors.required">City is required.</div>
+      </div>
+    </div>
+    <div class="col-md-2 mb-3">
+      <label for="state">State</label>
+      <input #state="ngModel" name="state" [(ngModel)]="shipping.state" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="state.touch && state.invalid">
+        <div *ngIf="state.errors.required">State is required.</div>
+      </div>
+    </div>
+    <div class="col-md-2 mb-3">
+      <label for="zip">Zip</label>
+      <input #zip="ngModel" name="zip" [(ngModel)]="shipping.zip" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="zip.touch && zip.invalid">
+        <div *ngIf="zip.errors.required">Zip is required.</div>
+      </div>
+    </div>
+  </div>
+  <button (click)="placeOrder()" class="btn btn-primary">Place Order</button>
+</form>
